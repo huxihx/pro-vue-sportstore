@@ -1,5 +1,13 @@
-<template>
-    <h4 class="bg-primary text-white text-center p-2">
-        Placeholder for ShoppingCart
-    </h4>
-</template>
+<script>
+import { mapState, mapMutations, mapGetters } from "vuex"
+import CartLine from "./ShoppingCartLine"
+
+export default {
+    components: { CartLine },
+    computed: {
+        ...mapState({ lines: state => state.cart.lines }),
+        ...mapGetters({ totalPrice: "cart/totalPrice" })
+    },
+    methods: {}
+}
+</script>
